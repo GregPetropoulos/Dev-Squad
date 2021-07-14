@@ -1,3 +1,4 @@
+// Validating the token if it exists
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
@@ -13,7 +14,7 @@ module.exports = function (req, res, next) {
   //   Verify token
   try {
     const decoded = jwt.verify(token, config.get('jwtSecret'));
-
+// This allows us to use req.user to get the users id or profile in any protected routes
     req.user = decoded.user;
     next();
   } catch (err) {
