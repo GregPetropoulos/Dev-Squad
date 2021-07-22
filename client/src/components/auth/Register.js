@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { register } from '../../actions/auth';
 import { setAlert } from '../../actions/alert';
+
 import PropTypes from 'prop-types';
 
 
@@ -9,7 +11,7 @@ import PropTypes from 'prop-types';
 // Commented out axios for the inline sign up request, will use redux instead
 // import axios from 'axios';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,7 +30,8 @@ const Register = ({ setAlert }) => {
       setAlert('Passwords do not match', 'danger')
       // console.log('Password do not match');
     } else {
-console.log('SUCCESS', formData)
+      register({ name, email, password });
+// console.log('SUCCESS', formData)
 
         // Commented out a request example in component--confirmed new user in the db, will use Redux instead
     //   const newUser = {
@@ -117,5 +120,6 @@ console.log('SUCCESS', formData)
 };
 Register.propTypes = { 
   setAlert: PropTypes.func.isRequired,
+  register:PropTypes.func.isRequired,
 }
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert,register })(Register);
