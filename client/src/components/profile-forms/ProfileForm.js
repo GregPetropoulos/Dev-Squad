@@ -66,7 +66,7 @@ const ProfileForm = ({
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
-    e.prevent.Default();
+    e.preventDefault();
     createProfile(formData, history, profile ? true : false);
   };
 

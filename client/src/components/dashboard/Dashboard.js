@@ -6,7 +6,7 @@ import DashboardActions from './DashboardActions';
 import Education from './Education';
 import Experience from './Experience';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
-import Spinner from '../layout/Spinner';
+// import Spinner from '../layout/Spinner';
 
 
 const Dashboard = ({

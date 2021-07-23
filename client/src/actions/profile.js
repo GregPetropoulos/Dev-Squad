@@ -19,7 +19,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 
     dispatch({
       type: GET_PROFILE,
-      payload: res.data,
+      payload: res.data
     });
   } catch (err) {
     dispatch({
@@ -164,7 +164,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 // Delete experience
 export const deleteExperience =(id) => async (dispatch)=>{
   try {
-    const res= api.delete(`/profile/delete/experience/${id}`);
+    const res= api.delete(`/profile/experience/${id}`);
     dispatch({
       type: UPDATE_PROFILE,
       payload:res.data
