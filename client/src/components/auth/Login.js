@@ -7,14 +7,14 @@ import { login } from '../../actions/auth';
 
 
 const Login = ({ login, isAuthenticated }) => {
-  const [formData, setFormData] = useState({    name: '',
+  const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
   const { email, password } = formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
@@ -22,7 +22,7 @@ const Login = ({ login, isAuthenticated }) => {
       // console.log('SUCCESS');
       login(email, password)
   };
-// Redirect if logged in
+
 if(isAuthenticated) {
   return <Redirect to='/dashboard'/>;
 }
@@ -32,7 +32,7 @@ if(isAuthenticated) {
       <p className='lead'>
         <i className='fas fa-user'></i> Sign into Your Account
       </p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
+      <form className='form' onSubmit={onSubmit}>
         
 
         <div className='form-group'>
@@ -41,7 +41,7 @@ if(isAuthenticated) {
             placeholder='Email Address'
             name='email'
             value={email}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
@@ -53,7 +53,7 @@ if(isAuthenticated) {
             name='password'
             minLength='6'
             value={password}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>

@@ -15,21 +15,23 @@ const AddEducation = ({ addEducation, history }) => {
     description: '',
   });
 
-  const { school, degree, fieldofstudy, from, to, current, description } = formData;
+  const { school, degree, fieldofstudy, from, to, current, description } =
+    formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
       <h1 className='large text-primary'>Add An Education</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch'></i> Add any school or bootcamp you have attended
+        <i className='fas fa-code-branch'></i> Add any school or bootcamp you
+        have attended
       </p>
       <small>* = required field</small>
       <form
         className='form'
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           addEducation(formData, history);
         }}
@@ -114,4 +116,4 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addEducation})(AddEducation);
+export default connect(null, { addEducation })(AddEducation);

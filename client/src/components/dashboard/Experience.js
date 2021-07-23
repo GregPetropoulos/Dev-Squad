@@ -6,15 +6,15 @@ import formatDate from '../../utils/formatDate';
 
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
-    <tr key={exp.id}>
-      <td>{exp._id}</td>
+    <tr key={exp._id}>
+      <td>{exp.company}</td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
         {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : 'Now'}
       </td>
       <td>
         <button
-          onClick={() => deleteExperience(exp.id)}
+          onClick={() => deleteExperience(exp._id)}
           className='btn btn-danger'
         >
           Delete
@@ -32,7 +32,7 @@ const Experience = ({ experience, deleteExperience }) => {
             <th>Company</th>
             <th className='hide-sm'>Title</th>
             <th className='hide-sm'>Years</th>
-            {/* <th/> */}
+            <th/>
           </tr>
         </thead>
         <tbody>{experiences}</tbody>

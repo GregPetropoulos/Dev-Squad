@@ -64,15 +64,15 @@ return <Redirect to='/dashboard'/>;
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='text'
             placeholder='Name'
             name='name'
             value={name}
-            onChange={(e) => onChange(e)}
-            required
+            onChange={onChange}
+            require
           />
         </div>
 
@@ -82,7 +82,7 @@ return <Redirect to='/dashboard'/>;
             placeholder='Email Address'
             name='email'
             value={email}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
           <small className='form-text'>
@@ -98,7 +98,7 @@ return <Redirect to='/dashboard'/>;
             name='password'
             minLength='6'
             value={password}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
@@ -109,7 +109,7 @@ return <Redirect to='/dashboard'/>;
             name='password2'
             minLength='6'
             value={password2}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
             required
           />
         </div>
@@ -125,7 +125,7 @@ Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register:PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
-}
+};
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated
 });
