@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '..layout/Spinner';
-import { getProfileById } from '../../actions/profile';
 
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
@@ -11,6 +10,7 @@ import ProfileEducation from './ProfileEducation';
 import ProfileExperience from './ProfileExperience';
 import ProfileGithub from './ProfileGithub';
 
+import { getProfileById } from '../../actions/profile';
 
 
 
