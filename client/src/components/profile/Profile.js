@@ -6,6 +6,8 @@ import Spinner from '..layout/Spinner';
 import { getProfileById } from '../../actions/profile';
 
 import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
+
 
 const Profile = ({ getProfileById, profile:{profile}, auth, match}) => {
   
