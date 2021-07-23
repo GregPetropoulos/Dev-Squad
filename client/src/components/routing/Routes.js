@@ -28,7 +28,7 @@ const Routes = props => {
         <PrivateRoute exact path='/edit-profile' component={ProfileForm} />
         <PrivateRoute exact path='/add-experience' component={AddExperience} />
         <PrivateRoute exact path='/add-education' component={AddEducation} />
-        <PrivateRoute exact path='/posts' component={Posts} />}
+        <PrivateRoute exact path='/posts' component={Posts} />
         <PrivateRoute exact path='/posts/:id' component={Post} /> 
         <Route component={NotFound} />
       </Switch>
