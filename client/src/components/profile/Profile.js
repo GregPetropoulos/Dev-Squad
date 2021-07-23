@@ -8,6 +8,8 @@ import { getProfileById } from '../../actions/profile';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileEducation from './ProfileEducation';
+import ProfileExperience from './ProfileExperience';
+
 
 
 
