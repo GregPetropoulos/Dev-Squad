@@ -22,3 +22,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# From repo
+config/production.json
+config/default.json
+client/build
+client/.eslintcache

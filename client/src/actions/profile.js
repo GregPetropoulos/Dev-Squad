@@ -39,7 +39,7 @@ export const getProfiles = () => async (dispatch) => {
 
     dispatch({
       type: GET_PROFILES,
-      payload: res.data,
+      payload: res.data
     });
   } catch (err) {
     dispatch({
@@ -52,10 +52,10 @@ export const getProfiles = () => async (dispatch) => {
 // Get Profile by ID
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await api.get(`/profile/user${userId}`);
+    const res = await api.get(`/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
-      payload: res.data,
+      payload: res.data
     });
   } catch (err) {
     dispatch({
@@ -67,15 +67,19 @@ export const getProfileById = (userId) => async (dispatch) => {
 
 // Get Github repos
 export const getGithubRepos = (username) => async (dispatch) => {
+
+
   try {
     const res = api.get(`/profile/github/${username}`);
     dispatch({
       type: GET_REPOS,
-      payload: res.data,
+      payload: res.data
     });
+  console.log('hit4',res)
+
   } catch (err) {
     dispatch({
-      type: NO_REPOS,
+      type: NO_REPOS
     });
   }
 };
@@ -90,7 +94,7 @@ export const createProfile =
       const res = await api.post('/profile', formData);
       dispatch({
         type: GET_PROFILE,
-        payload: res.data,
+        payload: res.data
       });
       dispatch(
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
