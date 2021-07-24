@@ -1,15 +1,14 @@
-import React, {Fragment} from 'react'
-import PropTypes from 'prop-types'
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const ProfileAbout = ({
-    profile: {
-        bio,
-        skills,
-        user:{ name }
-    }
-})=> {
-    return (
-        <div className='profile-about bg-light p-2'>
+  profile: {
+    bio,
+    skills,
+    user: { name }
+  }
+}) => (
+  <div className='profile-about bg-light p-2'>
     {bio && (
       <Fragment>
         <h2 className='text-primary'>{name.trim().split(' ')[0]}s Bio</h2>
@@ -26,12 +25,10 @@ const ProfileAbout = ({
       ))}
     </div>
   </div>
-    )
-}
+);
 
 ProfileAbout.propTypes = {
-    profile:PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+};
 
-}
-
-export default ProfileAbout
+export default ProfileAbout;
