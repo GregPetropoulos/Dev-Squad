@@ -31,7 +31,7 @@ company:{
   githubusername: {
     type: String,
   },
-  experiences: [
+  experience: [
     {
       title: {
         type: String,

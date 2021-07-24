@@ -89,7 +89,7 @@ const AddExperience = ({ addExperience, history }) => {
             name='to'
             value={to}
             onChange={onChange}
-            disable={current}
+            disabled={current}
           />
         </div>
         <div className='form-group'>
