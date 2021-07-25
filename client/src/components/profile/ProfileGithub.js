@@ -4,15 +4,7 @@ import { getGithubRepos } from '../../actions/profile';
 import { connect } from 'react-redux';
 
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
-  console.log('hit1',username)
-  console.log('hit2',getGithubRepos)
-  console.log('hit3',repos)
-  // console.log('hit4',data)
-  // console.log('hit5',payload)
-
-
-
-
+  
     useEffect(()=> {
         getGithubRepos(username);
     },[getGithubRepos, username]);

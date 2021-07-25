@@ -70,12 +70,12 @@ export const getGithubRepos = (username) => async (dispatch) => {
 
 
   try {
-    const res = api.get(`/profile/github/${username}`);
+    const res = await api.get(`/profile/github/${username}`);
     dispatch({
       type: GET_REPOS,
       payload: res.data
     });
-  console.log('hit4',res)
+
 
   } catch (err) {
     dispatch({
