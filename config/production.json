@@ -1,0 +1,7 @@
+{
+    "mongoURI":"mongodb+srv://gregadmindb:greg1234@cluster1.mgkxp.mongodb.net/DevConnectorDB?retryWrites=true&w=majority",
+    "jwtSecret":"mysecrettoken",
+    "githubClientId":"02d0a1a3bb4d724d3b9e",
+    "githubSecret":"90a4e41017baccfcb115a7ae5a87334bf7feace0",
+    "githubToken": "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"
+}
