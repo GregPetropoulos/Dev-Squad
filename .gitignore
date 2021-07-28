@@ -3,10 +3,10 @@ default.json
 
 
 # off Brad
-# config/production.json
+config/production.json
 config/default.json
-# client/build
-# client/.eslintcache
+client/build
+client/.eslintcache
 
 # Logs
 logs
