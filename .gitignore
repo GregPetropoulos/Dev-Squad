@@ -2,7 +2,7 @@ node_modules/
 default.json
 
 
-# off Brad
+# off Brad--Do not push to github because Personal Access Token to the 
 config/production.json
 config/default.json
 client/build
@@ -41,12 +41,7 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
+# node-w
 # Dependency directories
 node_modules/
 jspm_packages/
