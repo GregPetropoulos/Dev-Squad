@@ -3,5 +3,5 @@
     "jwtSecret":"mysecrettoken",
     "githubClientId":"02d0a1a3bb4d724d3b9e",
     "githubSecret":"90a4e41017baccfcb115a7ae5a87334bf7feace0",
-    "gitHubToken":"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"
+    "githubToken":"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"
 }

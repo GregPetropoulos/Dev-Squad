@@ -10,21 +10,20 @@ const bcrypt = require('bcryptjs');
 
 // JWT set up
 const jwt = require('jsonwebtoken');
-const config = require('config')
+const config = require('config');
 
 // @route   POST api/users
 // @desc    Register user route
 // @access Public--no token
 router.post(
   '/',
-  [
-    check('name', 'Name is Required').not().isEmpty(),
-    check('email', 'Please include a valid email').isEmail(),
-    check(
-      'password',
-      'Please enter a valid password with 6 or more characters'
-    ).isLength({ min: 6 }),
-  ],
+
+  check('name', 'Name is Required').not().isEmpty(),
+  check('email', 'Please include a valid email').isEmail(),
+  check(
+    'password',
+    'Please enter a valid password with 6 or more characters'
+  ).isLength({ min: 6 }),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -48,7 +47,7 @@ router.post(
         gravatar.url(email, {
           s: '200',
           r: 'pg',
-          d: 'mm',
+          d: 'mm'
         }),
         { forceHttps: true }
       );
@@ -57,7 +56,7 @@ router.post(
         name,
         email,
         avatar,
-        password,
+        password
       });
 
       // Encrypt the password
@@ -70,25 +69,24 @@ router.post(
       // Return jsonwebtoken
       const payload = {
         user: {
-          id: user.id,
+          id: user.id
         }
-      }
-     
-      jwt.sign(
-        payload, 
-        config.get('jwtSecret'),
-        {expiresIn:360000},
-        (err,token) => {
-          if(err)throw err;
-          res.json({token});
-        });
+      };
 
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: '5 days' },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
     }
   }
-  // console.log(req.body);
 );
 
 module.exports = router;

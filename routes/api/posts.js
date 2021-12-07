@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
-const Profile = require('../../models/Profile');
+
 const checkObjectId = require('../../middleware/checkObjectId');
 
 // @route   POST api/posts
@@ -64,9 +64,7 @@ router.get('/:id', auth, checkObjectId('id'), async (req, res) => {
     return res.json(post);
   } catch (err) {
     console.error(err.message);
-    if (err.kind === 'ObjectId') {
-      return res.status(404).json({ msg: 'Post not found' });
-    }
+    
     res.status(500).send('Server Error');
   }
 });
@@ -116,7 +114,7 @@ router.put('/like/:id', auth, checkObjectId('id'), async (req, res) => {
 
     await post.save();
 
-    res.json(post.likes);
+    return res.json(post.likes);
 
   } catch (err) {
     console.error(err.message);
@@ -144,7 +142,7 @@ post.likes =post.likes.filter(
   
       await post.save();
   
-      res.json(post.likes);
+      return res.json(post.likes);
   
     } catch (err) {
       console.error(err.message);
@@ -194,8 +192,6 @@ router.post(
 router.delete(
     '/comment/:id/:comment_id',
     auth,
-    check('text', 'Text is required')
-    .notEmpty(),
     async (req, res) => {
 
         try{
@@ -220,7 +216,7 @@ router.delete(
 
         await post.save();
         
-        res.json(post.comments);
+        return res.json(post.comments);
       } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
