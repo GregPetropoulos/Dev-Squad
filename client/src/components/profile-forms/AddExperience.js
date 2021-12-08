@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
 
-const AddExperience = ({ addExperience, history }) => {
+const AddExperience = ({ addExperience }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -12,16 +13,16 @@ const AddExperience = ({ addExperience, history }) => {
     from: '',
     to: '',
     current: false,
-    description: '',
+    description: ''
   });
 
   const { company, title, location, from, to, current, description } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <Fragment>
+    <section className='container'>
       <h1 className='large text-primary'>Add An Experience</h1>
       <p className='lead'>
         <i className='fas fa-code-branch'></i> Add any developer/programming
@@ -30,11 +31,10 @@ const AddExperience = ({ addExperience, history }) => {
       <small>* = required field</small>
       <form
         className='form'
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
-          addExperience(formData, history);
-        }}
-      >
+          addExperience(formData, navigate);
+        }}>
         <div className='form-group'>
           <input
             type='text'
@@ -107,12 +107,12 @@ const AddExperience = ({ addExperience, history }) => {
           Go Back
         </Link>
       </form>
-    </Fragment>
+    </section>
   );
 };
 
 AddExperience.propTypes = {
-  addExperience: PropTypes.func.isRequired,
+  addExperience: PropTypes.func.isRequired
 };
 
 export default connect(null, { addExperience })(AddExperience);

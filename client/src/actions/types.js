@@ -4,30 +4,31 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 
-// USER_LOADED runs on success
+//*USER_LOADED runs on success
 export const USER_LOADED = 'USER_LOADED';
-// AUTH_LOADED runs if something goes wrong like token doesn't match
+
+//*AUTH_LOADED runs if something goes wrong like token doesn't match
 export const AUTH_ERROR = 'AUTH_ERROR';
 
-// LOGIN
+//*LOGIN
 export const LOGIN_SUCCESS ='LOGIN_SUCCESS';
 export const LOGIN_FAIL ='LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
-// PROFILE
+//*PROFILE
 export const GET_PROFILE = 'GET_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
-// REPOS
+//*REPOS
 export const GET_REPOS = 'GET_REPOS';
 export const NO_REPOS = 'NO_REPOS';
 
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
 
-// POSTS
+//*POSTS
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POST = 'GET_POST';
 export const ADD_POST = 'ADD_POST';
@@ -36,7 +37,7 @@ export const POST_ERROR = 'POST_ERROR';
 
 export const UPDATE_LIKES = 'UPDATE_LIKES';
 
-// COMMENTS
+//*COMMENTS
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 

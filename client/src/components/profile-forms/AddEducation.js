@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEducation } from '../../actions/profile';
 
-const AddEducation = ({ addEducation, history }) => {
+const AddEducation = ({ addEducation }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
@@ -12,17 +13,17 @@ const AddEducation = ({ addEducation, history }) => {
     from: '',
     to: '',
     current: false,
-    description: '',
+    description: ''
   });
 
   const { school, degree, fieldofstudy, from, to, current, description } =
     formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <Fragment>
+    <section className='container'>
       <h1 className='large text-primary'>Add An Education</h1>
       <p className='lead'>
         <i className='fas fa-code-branch'></i> Add any school or bootcamp you
@@ -33,9 +34,8 @@ const AddEducation = ({ addEducation, history }) => {
         className='form'
         onSubmit={(e) => {
           e.preventDefault();
-          addEducation(formData, history);
-        }}
-      >
+          addEducation(formData, navigate);
+        }}>
         <div className='form-group'>
           <input
             type='text'
@@ -49,7 +49,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* Degree or Certification'
+            placeholder='* Degree or Certificate'
             name='degree'
             value={degree}
             onChange={onChange}
@@ -108,12 +108,12 @@ const AddEducation = ({ addEducation, history }) => {
           Go Back
         </Link>
       </form>
-    </Fragment>
+    </section>
   );
 };
 
 AddEducation.propTypes = {
-  addEducation: PropTypes.func.isRequired,
+  addEducation: PropTypes.func.isRequired
 };
 
 export default connect(null, { addEducation })(AddEducation);

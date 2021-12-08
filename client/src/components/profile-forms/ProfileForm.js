@@ -1,9 +1,13 @@
 import React, { useState, Fragment, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
-
+/*
+  NOTE: declare initialState outside of component
+  so that it doesn't trigger a useEffect
+  we can then safely use this to construct our profileData
+ */
 const initialState = {
   company: '',
   website: '',
@@ -16,23 +20,28 @@ const initialState = {
   facebook: '',
   linkedin: '',
   youtube: '',
-  instagram: '',
+  instagram: ''
 };
 
 const ProfileForm = ({
   profile: { profile, loading },
   createProfile,
-  getCurrentProfile,
-  history,
+  getCurrentProfile
 }) => {
   const [formData, setFormData] = useState(initialState);
 
-  const creatingProfile = useRouteMatch('/create-profile');
+  const creatingProfile = useMatch('/create-profile');
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+    // if there is no profile, attempt to fetch one
     if (!profile) getCurrentProfile();
+
+    // if we finished loading and we do have a profile
+    // then build our profileData
     if (!loading && profile) {
       const profileData = { ...initialState };
       for (const key in profile) {
@@ -41,8 +50,10 @@ const ProfileForm = ({
       for (const key in profile.social) {
         if (key in profileData) profileData[key] = profile.social[key];
       }
+      // the skills may be an array from our API response
       if (Array.isArray(profileData.skills))
-        profileData.skills = profileData.skills.join(',');
+        profileData.skills = profileData.skills.join(', ');
+      // set local state with the profileData
       setFormData(profileData);
     }
   }, [loading, getCurrentProfile, profile]);
@@ -59,7 +70,7 @@ const ProfileForm = ({
     facebook,
     linkedin,
     youtube,
-    instagram,
+    instagram
   } = formData;
 
   const onChange = (e) =>
@@ -67,11 +78,11 @@ const ProfileForm = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history, profile ? true : false);
+    createProfile(formData, navigate, profile ? true : false);
   };
 
   return (
-    <Fragment>
+    <section className='container'>
       <h1 className='large text-primary'>
         {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
       </h1>
@@ -86,7 +97,7 @@ const ProfileForm = ({
       <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <select name='status' value={status} onChange={onChange}>
-            <option value='0'>* Select Professional Status</option>
+            <option>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
             <option value='Senior Developer'>Senior Developer</option>
@@ -151,7 +162,7 @@ const ProfileForm = ({
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Github Username'
+            placeholder='Just the Github Username'
             name='githubusername'
             value={githubusername}
             onChange={onChange}
@@ -166,8 +177,7 @@ const ProfileForm = ({
             placeholder='A short bio of yourself'
             name='bio'
             value={bio}
-            onChange={onChange}
-          ></textarea>
+            onChange={onChange}></textarea>
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
 
@@ -175,8 +185,7 @@ const ProfileForm = ({
           <button
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             type='button'
-            className='btn btn-light'
-          >
+            className='btn btn-light'>
             Add Social Network Links
           </button>
           <span>Optional</span>
@@ -246,18 +255,18 @@ const ProfileForm = ({
           Go Back
         </Link>
       </form>
-    </Fragment>
+    </section>
   );
 };
 
 ProfileForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profile,
+  profile: state.profile
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
