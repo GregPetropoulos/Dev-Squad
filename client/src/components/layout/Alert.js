@@ -9,7 +9,7 @@ const Alert = ({ alerts }) => (
         {alert.msg}
       </div>
     ))}
-    ;
+    
   </div>
 );
 Alert.propTypes = {
