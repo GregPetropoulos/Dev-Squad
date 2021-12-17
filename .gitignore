@@ -1,9 +1,9 @@
 node_modules/
-default.json
-production.json
+# default.json
+# production.json
 # off Brad--Do not push to github because Personal Access Token to the 
-config/production.json
-config/default.json
+# config/production.json
+# config/default.json
 client/build
 client/.eslintcache
 

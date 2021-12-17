@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Profiles from '../profiles/Profiles'
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -24,9 +25,14 @@ const Landing = ({ isAuthenticated }) => {
             <Link to='/login' className='btn btn-light'>
               Login
             </Link>
+            <Link to='/githubfinder' className='btn btn-light'>
+              Github Finder
+            </Link>
           </div>
         </div>
+      <Profiles/>
       </div>
+
     </section>
   );
 };
