@@ -25,7 +25,7 @@ const Landing = ({ isAuthenticated }) => {
             <Link to='/login' className='btn btn-light'>
               Login
             </Link>
-            <Link to='/githubfinder' className='btn btn-light'>
+            <Link to='/githubFinder' className='btn btn-light'>
               Github Finder
             </Link>
           </div>

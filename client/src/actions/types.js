@@ -41,5 +41,14 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
+// *GITHUBFINDER
+export const GH_SEARCH_USERS = 'GH_SEARCH_USERS';
+export const GH_GET_USER = 'GH_GET_USER';
+export const GH_CLEAR_USERS = 'GH_CLEAR_USERS';
+export const GH_GET_REPOS = 'GH_GET_REPOS';
+export const GH_SET_LOADING = 'GH_SET_LOADING';
+export const GH_SET_ALERT = 'GH_SET_ALERT';
+export const GH_REMOVE_ALERT = 'GH_REMOVE_ALERT';
+export const GH_ERROR = 'GH_ERROR';
 
 
