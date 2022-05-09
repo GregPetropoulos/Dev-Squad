@@ -27,7 +27,6 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 // githubFinder
-import GithubFinder from './components/github/GithubFinder';
 import GithubHome from './components/github/pages/GithubHome';
 import GithubUser from './components/github/users/GithubUser';
 
@@ -58,8 +57,7 @@ const App = () => {
           <Route path='register' element={<Register />} />
           <Route path='login' element={<Login />} />
           <Route path='profiles' element={<Profiles />} />
-          <Route exact path='/githubFinder' element={<GithubHome/>} />
-                <Route exact path='/user/:login' component={GithubUser} />
+          <Route exact path='/user/:login' element={<GithubUser />}/>
 
           <Route path='profile/:id' element={<Profile />} />
           <Route
@@ -84,7 +82,7 @@ const App = () => {
           />
           <Route path='posts' element={<PrivateRoute component={Posts} />} />
           <Route path='posts/:id' element={<PrivateRoute component={Post} />} />
-          <Route path='/*' element={<NotFound />} />
+          {/* <Route path='/*' element={<NotFound />} /> */}
         </Routes>
       </Router>
     </Provider>

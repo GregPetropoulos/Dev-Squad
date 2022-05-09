@@ -3,12 +3,14 @@ import alert from './alert';
 import auth from './auth';
 import profile from './profile';
 import post from './post';
-import ghFinder from './ghFinder'
+import ghReducer from './ghReducer'
+import ghAlertReducer from './ghAlertReducer';
 
 export default combineReducers({
   alert,
   auth,
   profile,
   post,
-  ghFinder
+  ghFinder:ghReducer,
+  ghAlertReducer
 });

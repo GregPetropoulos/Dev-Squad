@@ -1,14 +1,17 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { searchUsers } from '../../../actions/githubAction';
-import { clearUsers } from '../../../actions/githubAction';
-import  {setAlert} from '../../../actions/githubAlert';
+import { searchUsers, clearUsers } from '../../../actions/githubAction';
+import { setAlert } from '../../../actions/githubAlert';
 
-
-const GithubSearch = ({searchUsers, clearUsers, setAlert}) => {
+const GithubSearch = ({ searchUsers, clearUsers, ghFinder:{users}}) => {
+  // *! not sure why cant return the users array ??ghFinder:{users}
+  console.log('hitusers',  {ghFinder:{users}});
+  console.log('check-users',  users);
   
-  const [text, setText] =useState('');
+    console.log('hitsearch', searchUsers);
+
+  const [text, setText] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +40,8 @@ const GithubSearch = ({searchUsers, clearUsers, setAlert}) => {
           value='Search'
           className='btn btn-dark btn-block'></input>
       </form>
-      {searchUsers.length > 0 && (
+
+      {users.length > 0 && (
         <button className='btn btn-light btn-block' onClick={clearUsers}>
           Clear
         </button>
@@ -46,12 +50,17 @@ const GithubSearch = ({searchUsers, clearUsers, setAlert}) => {
   );
 };
 
-GithubSearch.propTypes ={
-    searchUsers:PropTypes.func.isRequired,
-}
-const mapStateToProps =(state)=> ({
-    searchUsers: state.users,
+// GithubSearch.propTypes = {
+//   searchUsers: PropTypes.func.isRequired,
+//   users: PropTypes.array.isRequired
+// };
+const mapStateToProps = (state) => ({
+    users: state.ghusers,
+  //   loading:state,
+  searchUsers,
+  clearUsers
+});
 
-
-})
-export default connect(mapStateToProps, {clearUsers, searchUsers, setAlert})(GithubSearch);
+export default connect(mapStateToProps, { searchUsers, setAlert, clearUsers })(
+  GithubSearch
+);

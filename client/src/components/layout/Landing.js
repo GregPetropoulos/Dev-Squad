@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Profiles from '../profiles/Profiles'
+import Profiles from '../profiles/Profiles';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -25,14 +25,17 @@ const Landing = ({ isAuthenticated }) => {
             <Link to='/login' className='btn btn-light'>
               Login
             </Link>
-            <Link to='/githubFinder' className='btn btn-light'>
+            <a
+              href='https://github-spotter.vercel.app/'
+              target='_blank'
+              rel='noreferrer'
+              className='btn btn-light'>
               Github Finder
-            </Link>
+            </a>
           </div>
         </div>
-      <Profiles/>
+        <Profiles />
       </div>
-
     </section>
   );
 };

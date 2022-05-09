@@ -8,28 +8,31 @@ import {
   } from '../actions/types';
 
   const initialState = {
-    users: [],
-    user: {},
-    repos: [],
-    loading: false,
-    error:{}
+    ghusers: [],
+    ghuser: {},
+    ghrepos: [],
+    ghloading: false,
+    gherror:{}
   };
 
-  // eslint-disable-next-line
-function ghReducer(state=initialState, action) {
-  const { type, payload } = action;
-
-    switch (type) {
-      case GH_SEARCH_USERS:
-        return {
-          ...state,
-          users: payload,
-          loading: false
-        };
+  
+  // eslint-disable-next-line import/no-anonymous-default-export
+export default (state=initialState, action)=>{
+  
+  switch (action.type) {
+    case GH_SEARCH_USERS:
+      console.log('search users payload',state.users)
+      return {
+        ...state,
+        users: action.payload,
+        loading: false
+      };
       case GH_GET_USER:
+        console.log('get users payload',state.user)
+        
         return {
           ...state,
-          user: payload,
+          user: action.payload,
           loading: false
         };
       case GH_CLEAR_USERS:
@@ -41,7 +44,7 @@ function ghReducer(state=initialState, action) {
         case GH_GET_REPOS:
             return {
                 ...state,
-                repos:payload,
+                repos:action.payload,
                 loading: false
             }
       case GH_SET_LOADING:
@@ -52,11 +55,10 @@ function ghReducer(state=initialState, action) {
         case GH_ERROR:
             return {
               ...state,
-              error: payload,
+              error: action.payload,
               loading: false
             };
       default:
         return state;
     }
   };
-  export default ghReducer

@@ -20,8 +20,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export const searchUsers = (text) => async (dispatch) => {
-  // setLoading();
   try {
+    setLoading();
     const res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );
@@ -39,8 +39,8 @@ export const searchUsers = (text) => async (dispatch) => {
 
 //Get User
 export const getUser = (username) => async (dispatch) => {
-  // setLoading();
   try {
+    setLoading();
     const res = await axios.get(
       `https://api.github.com/users/${username}?client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );
@@ -58,8 +58,8 @@ export const getUser = (username) => async (dispatch) => {
 
 //Get Repos
 export const getUserRepos = (username) => async (dispatch) => {
-  // setLoading();
   try {
+    setLoading();
     const res = await axios.get(
       `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );

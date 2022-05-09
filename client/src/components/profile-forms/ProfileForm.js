@@ -169,7 +169,7 @@ const ProfileForm = ({
           />
           <small className='form-text'>
             If you want your latest repos and a Github link, include your
-            username
+           Github username ONLY.
           </small>
         </div>
         <div className='form-group'>

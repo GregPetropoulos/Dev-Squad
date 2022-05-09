@@ -48,7 +48,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='name'
             value={name}
             onChange={onChange}
-            require
+            require={true}
           />
         </div>
 
@@ -59,7 +59,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='email'
             value={email}
             onChange={onChange}
-            required
+            required={true}
           />
           <small className='form-text'>
             This site uses <a href='https://en.gravatar.com/' rel="noreferrer" target="_blank">Gravatar</a> so if you want a profile image, use a <a href='https://en.gravatar.com/' rel="noreferrer" target="_blank">Gravatar</a> email
@@ -74,7 +74,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
             value={password}
             onChange={onChange}
-            required
+            required={true}
           />
         </div>
         <div className='form-group'>
@@ -85,7 +85,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
             value={password2}
             onChange={onChange}
-            required
+            required={true}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />

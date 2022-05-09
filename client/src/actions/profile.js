@@ -89,10 +89,11 @@ export const getGithubRepos = (username) => async (dispatch) => {
 
 // Create or update profile
 export const createProfile =
-  (formData, history, edit = false) =>
+  (formData, navigate, edit = false) =>
   async (dispatch) => {
     try {
-      const res = await api.post('/profile', formData);
+      const res = await api.post('/profile/', formData);
+      console.log(res)
       dispatch({
         type: GET_PROFILE,
         payload: res.data
@@ -100,11 +101,13 @@ export const createProfile =
       dispatch(
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
       );
-      if (!edit) {
-        history.push('/dashboard');
-      }
+      // if (!edit) {
+      //   navigate('/dashboard');
+      // }
+      navigate('/dashboard')
     } catch (err) {
       const errors = err.response.data.errors;
+      console.log(errors)
       if (errors) {
         errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
       }
