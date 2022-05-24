@@ -6,9 +6,11 @@ import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
+
   return (
     <section className='container'>
       {loading ? (

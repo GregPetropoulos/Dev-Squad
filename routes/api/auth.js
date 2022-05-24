@@ -38,11 +38,10 @@ router.post(
 
     // Logic for user registration
     const { email, password } = req.body;
-
     try {
       // See if user already exists at login, changed to async/await rather .then
       let user = await User.findOne({ email });
-
+      
       if (!user) {
         return res
           .status(400)
@@ -54,7 +53,7 @@ router.post(
       if (!isMatch) {
         return res
           .status(400)
-          .json({ error: [{ message: ' Invalid Credentials' }] });
+          .json({ error: [{ message: ' checkk Invalid Credentials' }] });
       }
 
       // Return jsonwebtoken

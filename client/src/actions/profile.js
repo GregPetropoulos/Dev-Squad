@@ -23,7 +23,7 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await api.get('/profile/me');
-
+console.log('getcurrentprofile',res);
     dispatch({
       type: GET_PROFILE,
       payload: res.data
@@ -43,7 +43,7 @@ export const getProfiles = () => async (dispatch) => {
   });
   try {
     const res = await api.get('/profile');
-
+    
     dispatch({
       type: GET_PROFILES,
       payload: res.data
@@ -101,10 +101,10 @@ export const createProfile =
       dispatch(
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
       );
-      // if (!edit) {
-      //   navigate('/dashboard');
-      // }
-      navigate('/dashboard')
+      if (!edit) {
+        navigate('/dashboard');
+      }
+      // navigate('/dashboard')
     } catch (err) {
       const errors = err.response.data.errors;
       console.log(errors)
@@ -119,7 +119,7 @@ export const createProfile =
   };
 
 // Add Experience
-export const addExperience = (formData, history) => async (dispatch) => {
+export const addExperience = (formData, navigate) => async (dispatch) => {
   try {
     const res = await api.put('/profile/experience', formData);
 
@@ -130,7 +130,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 
     dispatch(setAlert('Experience Added', 'success'));
 
-    history.push('/dashboard');
+    navigate('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -145,7 +145,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 };
 
 // Add Education
-export const addEducation = (formData, history) => async (dispatch) => {
+export const addEducation = (formData, navigate) => async (dispatch) => {
   try {
     const res = await api.put('/profile/education', formData);
     dispatch({
@@ -155,7 +155,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 
     dispatch(setAlert('Education Added', 'success'));
 
-    history.push('/dashboard');
+    navigate('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 

@@ -1,5 +1,5 @@
 {
-    "mongoURI":"mongodb+srv://gregadmindb:greg1234@cluster1.mgkxp.mongodb.net/DevConnectorDB?retryWrites=true&w=majority",
+    "mongoURI":"mongodb+srv://gregadmindb:greg4321@cluster1.mgkxp.mongodb.net/DevConnectorDB?retryWrites=true&w=majority",
     "jwtSecret":"mysecrettoken",
     "githubClientId":"02d0a1a3bb4d724d3b9e",
     "githubSecret":"fb20c97e5de258f3b0699bb55043efe3d20ea465",
