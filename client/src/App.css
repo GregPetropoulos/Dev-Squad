@@ -13,6 +13,13 @@
   padding: 0;
 }
 
+/* Debugger */
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
@@ -164,6 +171,10 @@ img {
 .alert-primary {
   background: var(--primary-color);
   color: #fff;
+  border-radius: 10px;
+}
+.round-div {
+  border-radius: 10px;
 }
 
 .btn-light,
@@ -377,6 +388,7 @@ button {
 .profile-top {
   grid-area: top;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -465,7 +477,7 @@ button {
 .post {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
+  grid-gap: 0.25rem;
   align-items: center;
 }
 
@@ -490,6 +502,10 @@ button {
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
+
+/* Comments on a post */
+/* sames a  post styling in in the commentItem component */
+/* used flex box in the parent of the comment  */
 
 /* Prod addons */
 .buttons {
@@ -592,23 +608,75 @@ button {
   display: inline-block;
 }
 
-/* MEDIA QUERYS */
+/**---MEDIA QUERYS FOR MOBILE-RESPONSIVE--------------------------–––––––––-- */
+/* Pages -- Landing, Dashboard, Login,  */
 @media screen and (max-width: 480px) {
-  .title {
+  .center {
     text-align: center;
   }
-  table{
-    display:block;
-text-align: center;
-width: 100%;
+  table {
+    display: block;
+    text-align: center;
+    width: 100%;
   }
-  .table td{
-    padding:0px;
+  .table td {
+    padding: 0px;
     text-align: center;
   }
-  .delete-btn{
-    margin:0px;
+  .delete-btn {
+    margin: 0px;
     margin-top: 5px;
   }
+  .profile-top img,
+  .profile img {
+    width: 125px;
+  }
+  .btn-profile-back {
+    margin: 0px;
+  }
+}
 
+/* Pages -- Posts Edit-Profile, Add-Education, Add-Experience, Posts, Post/ID,  Comments(posts/id)  Profiles, Forms Alert */
+@media screen and (max-width: 480px) {
+  .mobile-heading {
+    font-size: 16px;
+  }
+  .mobile-text {
+    font-size: 16px;
+    margin: 0px;
+  }
+  .star {
+    margin: 3px;
+    margin-bottom: 6px;
+  }
+  .profile-top img {
+    width: 100px;
+  }
+  .profile-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .form input[type='text'],
+  .form input[type='email'],
+  .form input[type='password'],
+  .form input[type='date'],
+  .form select,
+  .form textarea {
+    font-size: 12px;
+  }
+  .alert-wrapper {
+    position: fixed;
+    top: 8rem;
+    right: 1rem;
+    display: inline-block;
+  }
+}
+/* Truncate words */
+@media screen and (max-width: 325px) {
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+  }
 }

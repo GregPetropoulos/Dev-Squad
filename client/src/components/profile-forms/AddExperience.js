@@ -23,14 +23,14 @@ const AddExperience = ({ addExperience }) => {
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Add An Experience</h1>
-      <p className='lead'>
+      <h1 className='large text-primary mobile-heading'>Add An Experience</h1>
+      <p className='lead mobile-text'>
         <i className='fas fa-code-branch'></i> Add any developer/programming
         positions that you have had in the past
       </p>
-      <small>* = required field</small>
+      <small className='mobile-text'>* = required field</small>
       <form
-        className='form'
+        className='form mobile-text'
         onSubmit={(e) => {
           e.preventDefault();
           addExperience(formData, navigate);

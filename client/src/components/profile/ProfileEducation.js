@@ -6,17 +6,17 @@ const ProfileEducation = ({
   education: { school, degree, fieldofstudy, current, to, from, description }
 }) => (
   <div>
-    <h3 className='text-dark'>{school}</h3>
-    <p>
+    <h3 className='text-dark mobile-heading'>{school}</h3>
+    <p className='mobile-text'>
       {formatDate(from)} - {to ? formatDate(to) : 'Now'}
     </p>
-    <p>
+    <p className='mobile-text'>
       <strong>Degree: </strong> {degree}
     </p>
-    <p>
+    <p className='mobile-text'>
       <strong>Field Of Study: </strong> {fieldofstudy}
     </p>
-    <p>
+    <p className='mobile-text'>
       <strong>Description: </strong> {description}
     </p>
   </div>

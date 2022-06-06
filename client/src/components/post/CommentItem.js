@@ -15,12 +15,12 @@ const CommentItem = ({
     <div>
       <Link to={`/profile/${user}`}>
         <img className='round-img' src={avatar} alt='' />
-        <h4>{name}</h4>
+        <h4 className='mobile-heading'>{name}</h4>
       </Link>
     </div>
     <div>
-      <p className='my-1'>{text}</p>
-      <p className='post-date'>Posted on {formatDate(date)}</p>
+      <p className='my-1 mobile-text'>{text}</p>
+      <p className='post-date mobile-text'>Posted on {formatDate(date)}</p>
       {!auth.loading && user === auth.user._id && (
         <button
           onClick={() => deleteComment(postId, _id)}

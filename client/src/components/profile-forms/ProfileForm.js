@@ -83,18 +83,18 @@ const ProfileForm = ({
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>
+      <h1 className='large text-primary mobile-heading'>
         {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
       </h1>
-      <p className='lead'>
+      <p className='lead mobile-text'>
         <i className='fas fa-user'></i>{' '}
         {creatingProfile
           ? `Let's get some information to make your
         profile stand out`
           : 'Add some changes to your profile'}
       </p>
-      <small>* = required field</small>
-      <form className='form' onSubmit={onSubmit}>
+      <small className='mobile-text'>* = required field</small>
+      <form className='form mobile-text' onSubmit={onSubmit}>
         <div className='form-group'>
           <select name='status' value={status} onChange={onChange}>
             <option>* Select Professional Status</option>
@@ -119,7 +119,7 @@ const ProfileForm = ({
             value={company}
             onChange={onChange}
           />
-          <small className='form-text'>
+          <small className='form-text mobile-text'>
             Could be your own company or one you work for
           </small>
         </div>
@@ -131,7 +131,7 @@ const ProfileForm = ({
             value={website}
             onChange={onChange}
           />
-          <small className='form-text'>
+          <small className='form-text mobile-text'>
             Could be your own or a company website
           </small>
         </div>
@@ -143,7 +143,7 @@ const ProfileForm = ({
             value={location}
             onChange={onChange}
           />
-          <small className='form-text'>
+          <small className='form-text mobile-text'>
             City & state suggested (eg. Los Angeles, CA)
           </small>
         </div>
@@ -155,7 +155,7 @@ const ProfileForm = ({
             value={skills}
             onChange={onChange}
           />
-          <small className='form-text'>
+          <small className='form-text mobile-text'>
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
           </small>
         </div>
@@ -167,7 +167,7 @@ const ProfileForm = ({
             value={githubusername}
             onChange={onChange}
           />
-          <small className='form-text'>
+          <small className='form-text mobile-text'>
             If you want your latest repos and a Github link, include your
            Github username ONLY.
           </small>
@@ -178,7 +178,7 @@ const ProfileForm = ({
             name='bio'
             value={bio}
             onChange={onChange}></textarea>
-          <small className='form-text'>Tell us a little about yourself</small>
+          <small className='form-text mobile-text'>Tell us a little about yourself</small>
         </div>
 
         <div className='my-2'>

@@ -25,8 +25,9 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <Link to='/profiles' className='btn btn-light'>
-            Back To Profiles
+          <div className='my-2'></div>
+          <Link to='/profiles' className='btn btn-light btn-profile-back'>
+          &#x2B05; Back To Profiles 
           </Link>
           {auth.isAuthenticated &&
             auth.loading === false &&
@@ -39,7 +40,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
             <div className='profile-exp bg-white p-2'>
-              <h2 className='text-primary'>Experience</h2>
+              <h2 className='text-primary mobile-heading'>Experience</h2>
               {profile.experience.length > 0 ? (
                 <Fragment>
                   {profile.experience.map((experience) => (
@@ -55,7 +56,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
             </div>
 
             <div className='profile-edu bg-white p-2'>
-              <h2 className='text-primary'>Education</h2>
+              <h2 className='text-primary mobile-heading'>Education</h2>
               {profile.education.length > 0 ? (
                 <Fragment>
                   {profile.education.map((education) => (
