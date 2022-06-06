@@ -9,7 +9,7 @@ const PostForm = ({ addPost }) => {
   return (
     <div className='post-form'>
       <div className='bg-primary p my-1'>
-        <h3 className='mobile-heading' >Share ideas and thoughts...</h3>
+        <h3 className='mobile-heading'>Share ideas and thoughts...</h3>
       </div>
       <form
         className='form my-1 mobile-text'
@@ -22,6 +22,7 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
+          spellCheck={text}
           placeholder='Create a post'
           value={text}
           onChange={(e) => setText(e.target.value)}

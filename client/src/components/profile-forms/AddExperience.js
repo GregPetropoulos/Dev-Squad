@@ -97,6 +97,7 @@ const AddExperience = ({ addExperience }) => {
             name='description'
             cols='30'
             rows='5'
+            spellCheck={description}
             placeholder='Job Description'
             value={description}
             onChange={onChange}

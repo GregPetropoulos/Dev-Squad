@@ -98,6 +98,7 @@ const AddEducation = ({ addEducation }) => {
             name='description'
             cols='30'
             rows='5'
+            spellCheck={description}
             placeholder='Program Description'
             value={description}
             onChange={onChange}

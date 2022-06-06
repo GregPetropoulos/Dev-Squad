@@ -177,6 +177,7 @@ const ProfileForm = ({
             placeholder='A short bio of yourself'
             name='bio'
             value={bio}
+            spellCheck={bio}
             onChange={onChange}></textarea>
           <small className='form-text mobile-text'>Tell us a little about yourself</small>
         </div>

@@ -93,7 +93,7 @@ export const createProfile =
   async (dispatch) => {
     try {
       const res = await api.post('/profile/', formData);
-      console.log(res)
+      // console.log(res)
       dispatch({
         type: GET_PROFILE,
         payload: res.data
