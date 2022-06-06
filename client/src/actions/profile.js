@@ -23,7 +23,7 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await api.get('/profile/me');
-console.log('getcurrentprofile',res);
+// console.log('getcurrentprofile',res);
     dispatch({
       type: GET_PROFILE,
       payload: res.data
