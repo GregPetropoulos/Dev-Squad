@@ -18,7 +18,6 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import { LOGOUT } from './actions/types';
 
 import './App.css';
-
 // Redux need a provider to combine redux into react
 import { Provider } from 'react-redux';
 // Redux
