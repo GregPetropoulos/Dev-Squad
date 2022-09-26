@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
 
 // JWT set up
 const jwt = require('jsonwebtoken');
-const config = require('config');
+const jwtsecret=process.env.JWT_SECRET
 
 // @route   POST api/users
 // @desc    Register user route
@@ -75,7 +75,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        jwtsecret,
         { expiresIn: '5 days' },
         (err, token) => {
           if (err) throw err;

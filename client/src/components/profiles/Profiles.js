@@ -6,16 +6,18 @@ import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
+
   return (
     <section className='container'>
       {loading ? (
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>Developers</h1>
+          <h1 className='large text-primary center'>Developers</h1>
           <p className='lead'>
             <i className='fab fa-connectdevelop' /> Browse and connect with
             developers
@@ -25,9 +27,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
               profiles.map((profile) => (
                 <ProfileItem key={profile._id} profile={profile} />
               ))
-            ) : (
-              <h4>No profiles found...</h4>
-            )}
+            ) :( <h4>No Profiles To Find..</h4>)}
           </div>
         </Fragment>
       )}

@@ -6,6 +6,7 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
+  DEMO_LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT
 } from './types';
@@ -42,6 +43,8 @@ export const register = (formData) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
+    dispatch(setAlert('New User Registered', 'success'));
+
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -58,7 +61,6 @@ export const register = (formData) => async (dispatch) => {
 // Login User
 export const login = (email, password) => async (dispatch) => {
   const body = { email, password };
-
   try {
     const res = await api.post('/auth', body);
     dispatch({
@@ -66,6 +68,32 @@ export const login = (email, password) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
+    dispatch(setAlert('Logged in', 'success'));
+
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+    dispatch({
+      type: LOGIN_FAIL
+    });
+  }
+};
+
+// DEMO USER
+export const demoLogin = (email, password) => async (dispatch) => {
+  const body = { email, password };
+  try {
+    const res = await api.post('/auth', body);
+    dispatch({
+      type: DEMO_LOGIN_SUCCESS,
+      payload: res.data
+    });
+    dispatch(loadUser());
+    dispatch(setAlert('Demo User Logged in', 'success'));
+
   } catch (err) {
     const errors = err.response.data.errors;
 

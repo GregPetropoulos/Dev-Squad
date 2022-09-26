@@ -23,6 +23,8 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await api.get('/profile/me');
+// console.log('getcurrentprofile',res);
+// console.log("demo",getCurrentProfile.data.user.name)
 
     dispatch({
       type: GET_PROFILE,
@@ -43,7 +45,7 @@ export const getProfiles = () => async (dispatch) => {
   });
   try {
     const res = await api.get('/profile');
-
+    
     dispatch({
       type: GET_PROFILES,
       payload: res.data
@@ -89,10 +91,11 @@ export const getGithubRepos = (username) => async (dispatch) => {
 
 // Create or update profile
 export const createProfile =
-  (formData, history, edit = false) =>
+  (formData, navigate, edit = false) =>
   async (dispatch) => {
     try {
-      const res = await api.post('/profile', formData);
+      const res = await api.post('/profile/', formData);
+      // console.log(res)
       dispatch({
         type: GET_PROFILE,
         payload: res.data
@@ -101,10 +104,12 @@ export const createProfile =
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
       );
       if (!edit) {
-        history.push('/dashboard');
+        navigate('/dashboard');
       }
+      // navigate('/dashboard')
     } catch (err) {
       const errors = err.response.data.errors;
+      console.log(errors)
       if (errors) {
         errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
       }
@@ -116,7 +121,7 @@ export const createProfile =
   };
 
 // Add Experience
-export const addExperience = (formData, history) => async (dispatch) => {
+export const addExperience = (formData, navigate) => async (dispatch) => {
   try {
     const res = await api.put('/profile/experience', formData);
 
@@ -127,7 +132,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 
     dispatch(setAlert('Experience Added', 'success'));
 
-    history.push('/dashboard');
+    navigate('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -142,7 +147,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 };
 
 // Add Education
-export const addEducation = (formData, history) => async (dispatch) => {
+export const addEducation = (formData, navigate) => async (dispatch) => {
   try {
     const res = await api.put('/profile/education', formData);
     dispatch({
@@ -152,7 +157,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 
     dispatch(setAlert('Education Added', 'success'));
 
-    history.push('/dashboard');
+    navigate('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 

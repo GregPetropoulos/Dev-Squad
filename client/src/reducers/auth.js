@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   // LOGIN_FAIL,
   LOGIN_SUCCESS,
+  DEMO_LOGIN_SUCCESS,
   LOGOUT,
   ACCOUNT_DELETED
 } from '../actions/types';
@@ -13,6 +14,7 @@ import {
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
+  isDemo:null,
   loading: true,
   user: null
 };
@@ -37,6 +39,15 @@ function authReducer(state = initialState, action) {
         isAuthenticated: true,
         loading: false
       };
+      case DEMO_LOGIN_SUCCESS:
+        localStorage.setItem('token', payload.token);
+        return {
+          ...state,
+          ...payload,
+          isAuthenticated: true,
+          isDemo:true,
+          loading: false
+        };
     case ACCOUNT_DELETED:
     case AUTH_ERROR:
     case LOGOUT:
@@ -45,6 +56,7 @@ function authReducer(state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
+        isDemo:false,
         loading: false,
         user: null
       };

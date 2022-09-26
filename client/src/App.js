@@ -26,6 +26,10 @@ import store from './store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
+// githubFinder
+import GithubHome from './components/github/pages/GithubHome';
+import GithubUser from './components/github/users/GithubUser';
+
 const App = () => {
   useEffect(() => {
     // Check for token in local storage when app first runs
@@ -53,6 +57,8 @@ const App = () => {
           <Route path='register' element={<Register />} />
           <Route path='login' element={<Login />} />
           <Route path='profiles' element={<Profiles />} />
+          <Route exact path='/user/:login' element={<GithubUser />}/>
+
           <Route path='profile/:id' element={<Profile />} />
           <Route
             path='dashboard'

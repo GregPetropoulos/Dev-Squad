@@ -24,14 +24,14 @@ const AddEducation = ({ addEducation }) => {
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Add An Education</h1>
-      <p className='lead'>
+      <h1 className='large text-primary mobile-heading'>Add An Education</h1>
+      <p className='lead mobile-text'>
         <i className='fas fa-code-branch'></i> Add any school or bootcamp you
         have attended
       </p>
-      <small>* = required field</small>
+      <small className='mobile-text'>* = required field</small>
       <form
-        className='form'
+        className='form mobile-text'
         onSubmit={(e) => {
           e.preventDefault();
           addEducation(formData, navigate);
@@ -98,6 +98,7 @@ const AddEducation = ({ addEducation }) => {
             name='description'
             cols='30'
             rows='5'
+            spellCheck={description}
             placeholder='Program Description'
             value={description}
             onChange={onChange}

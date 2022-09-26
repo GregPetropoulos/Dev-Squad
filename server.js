@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 
+//To protect env variables and use process.env
+require('dotenv').config();
+
 // Database setup
 const connectDB = require('./config/db');
 
@@ -18,7 +21,8 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
-// Serve static assets in production
+//!UNCOMMENT FOR PRODUCTION
+// // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set the static folder
   app.use(express.static('client/build'));

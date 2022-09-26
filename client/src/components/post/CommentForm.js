@@ -8,11 +8,11 @@ const CommentForm = ({ postId, addComment }) => {
 
   return (
     <div className='post-form'>
-      <div className='bg-primary p'>
-        <h3>Leave a Comment</h3>
+      <div className='my-1 bg-primary p'>
+        <h3 className='mobile-heading'>Leave a Comment</h3>
       </div>
       <form
-        className='form my-1'
+        className='form my-1 mobile-text'
         onSubmit={(e) => {
           e.preventDefault();
           addComment(postId, { text });
@@ -22,6 +22,7 @@ const CommentForm = ({ postId, addComment }) => {
           name='text'
           cols='30'
           rows='5'
+          spellCheck={text}
           placeholder='Comment the post'
           value={text}
           onChange={(e) => setText(e.target.value)}

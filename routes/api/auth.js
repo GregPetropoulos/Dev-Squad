@@ -5,7 +5,7 @@ const User = require('../../models/User');
 
 // For the post route to Authenticate user & get token,
 const { check, validationResult } = require('express-validator');
-const config = require('config');
+const jwtsecret=process.env.JWT_SECRET
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -38,11 +38,10 @@ router.post(
 
     // Logic for user registration
     const { email, password } = req.body;
-
     try {
       // See if user already exists at login, changed to async/await rather .then
       let user = await User.findOne({ email });
-
+      
       if (!user) {
         return res
           .status(400)
@@ -54,7 +53,7 @@ router.post(
       if (!isMatch) {
         return res
           .status(400)
-          .json({ error: [{ message: ' Invalid Credentials' }] });
+          .json({ error: [{ message: ' checkk Invalid Credentials' }] });
       }
 
       // Return jsonwebtoken
@@ -63,10 +62,9 @@ router.post(
           id: user.id
         }
       };
-
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        jwtsecret,
         { expiresIn: '5 days' },
         (err, token) => {
           if (err) throw err;

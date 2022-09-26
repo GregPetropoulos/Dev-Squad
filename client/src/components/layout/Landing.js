@@ -1,10 +1,24 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Profiles from '../profiles/Profiles';
+import { demoLogin } from '../../actions/auth';
 
-const Landing = ({ isAuthenticated }) => {
-  if (isAuthenticated) {
+const Landing = ({ demoLogin, isAuthenticated, isDemo }) => {
+  const [demoData, setDemoData] = useState({
+    email: 'gregpetropoulos0341@gmail.com',
+    password: 'password'
+  });
+  const { email, password } = demoData;
+
+  const onDemoSubmit = async (e) => {
+    e.preventDefault();
+    // console.log('SUCCESS on DEMO');
+    demoLogin(email, password);
+  };
+
+  if (isAuthenticated || isDemo) {
     return <Navigate to='/dashboard' />;
   }
 
@@ -24,18 +38,35 @@ const Landing = ({ isAuthenticated }) => {
             <Link to='/login' className='btn btn-light'>
               Login
             </Link>
+            <form onSubmit={onDemoSubmit}>
+              <button type='submit' className='btn btn-primary'>
+                Demo
+              </button>
+            </form>
+
+            <a
+              href='https://github-spotter.vercel.app/'
+              target='_blank'
+              rel='noreferrer'
+              className='btn btn-light'>
+              Github Finder
+            </a>
           </div>
         </div>
+        <Profiles />
       </div>
     </section>
   );
 };
 
 Landing.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  isDemo: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  isDemo: state.auth.isDemo
 });
-export default connect(mapStateToProps)(Landing);
+
+export default connect(mapStateToProps, { demoLogin })(Landing);

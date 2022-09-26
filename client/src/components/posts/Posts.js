@@ -12,8 +12,8 @@ const Posts = ({ getPosts, post: { posts } }) => {
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Posts</h1>
-      <p className='lead'>
+      <h1 className='large text-primary mobile-heading'>Posts</h1>
+      <p className='lead mobile-text'>
         <i className='fas fa-user' /> Welcome to the community
       </p>
       <PostForm />
