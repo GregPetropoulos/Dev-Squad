@@ -14,8 +14,8 @@ export const GithubUser = ({
   finder: { loading, user, repos }
 }) => {
   // finder: {loading, user, repos}
-  console.log('hitgetUser', getUser);
-  console.log('hitgetUserRepos', getUserRepos);
+  // console.log('hitgetUser', getUser);
+  // console.log('hitgetUserRepos', getUserRepos);
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);

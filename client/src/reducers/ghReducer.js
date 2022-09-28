@@ -21,15 +21,12 @@ export default (state=initialState, action)=>{
   
   switch (action.type) {
     case GH_SEARCH_USERS:
-      console.log('search users payload',state.users)
       return {
         ...state,
         users: action.payload,
         loading: false
       };
       case GH_GET_USER:
-        console.log('get users payload',state.user)
-        
         return {
           ...state,
           user: action.payload,

@@ -5,11 +5,6 @@ import { searchUsers, clearUsers } from '../../../actions/githubAction';
 import { setAlert } from '../../../actions/githubAlert';
 
 const GithubSearch = ({ searchUsers, clearUsers, ghFinder:{users}}) => {
-  // *! not sure why cant return the users array ??ghFinder:{users}
-  console.log('hitusers',  {ghFinder:{users}});
-  console.log('check-users',  users);
-  
-    console.log('hitsearch', searchUsers);
 
   const [text, setText] = useState('');
 
