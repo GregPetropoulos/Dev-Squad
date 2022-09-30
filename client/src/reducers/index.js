@@ -12,5 +12,5 @@ export default combineReducers({
   profile,
   post,
   ghFinder:ghReducer,
-  ghAlertReducer
+  ghAlertReducer,
 });

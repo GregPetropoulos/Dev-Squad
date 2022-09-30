@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import setAuthToken from './utils/setAuthToken';
@@ -11,7 +11,8 @@ const middleware = [thunk];
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(applyMiddleware(...middleware)),
+  
 );
 
 // Set up a store subscription listener to store the users token in local storage
