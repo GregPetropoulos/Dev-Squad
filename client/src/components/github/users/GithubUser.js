@@ -13,13 +13,9 @@ export const GithubUser = ({
   getUserRepos,
   finder: { loading, user, repos }
 }) => {
-  // finder: {loading, user, repos}
-  // console.log('hitgetUser', getUser);
-  // console.log('hitgetUserRepos', getUserRepos);
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
@@ -106,15 +102,14 @@ export const GithubUser = ({
     </Fragment>
   );
 };
-// GithubUser.propTypes = {
-//     getUser:PropTypes.func.isRequired,
-//     getUserRepos:PropTypes.func.isRequired,
-// }
+GithubUser.propTypes = {
+    getUser:PropTypes.func.isRequired,
+    getUserRepos:PropTypes.func.isRequired,
+}
 // const mapStateToProps =(state) => ({
 //     finder:state.finder,
 //     getUser,
 //     getUserRepos
 // })
 
-// export default connect(mapStateToProps, {getUser, getUserRepos})(GithubUser)
 export default connect(null, { getUser, getUserRepos })(GithubUser);

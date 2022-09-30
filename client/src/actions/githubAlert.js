@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { GH_SET_ALERT, GH_REMOVE_ALERT, GH_ERROR} from './types';
 

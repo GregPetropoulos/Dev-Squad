@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,10 +5,10 @@ import Profiles from '../profiles/Profiles';
 import { demoLogin } from '../../actions/auth';
 
 const Landing = ({ demoLogin, isAuthenticated, isDemo }) => {
-  const [demoData, setDemoData] = useState({
+  const demoData={
     email: 'gregpetropoulos0341@gmail.com',
     password: 'password'
-  });
+  };
   const { email, password } = demoData;
 
   const onDemoSubmit = async (e) => {

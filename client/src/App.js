@@ -26,7 +26,6 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 // githubFinder
-import GithubHome from './components/github/pages/GithubHome';
 import GithubUser from './components/github/users/GithubUser';
 
 const App = () => {

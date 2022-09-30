@@ -45,13 +45,12 @@ const GithubSearch = ({ searchUsers, clearUsers, ghFinder:{users}}) => {
   );
 };
 
-// GithubSearch.propTypes = {
-//   searchUsers: PropTypes.func.isRequired,
-//   users: PropTypes.array.isRequired
-// };
+GithubSearch.propTypes = {
+  searchUsers: PropTypes.func.isRequired,
+  users: PropTypes.array.isRequired
+};
 const mapStateToProps = (state) => ({
     users: state.ghusers,
-  //   loading:state,
   searchUsers,
   clearUsers
 });
